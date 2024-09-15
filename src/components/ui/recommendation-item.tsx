@@ -37,3 +37,15 @@ export const RecommendationItem = ({ user }: Props) => {
     </div>
   );
 };
+
+export const RecommendationItemSkeleton = () => {
+  return (
+    <div className="flex animate-pulse items-center">
+      <div className="mr-2 size-10 rounded-full bg-gray-600"></div>
+      <div className="flex flex-1 flex-col gap-1">
+        <div className="h-4 w-3/4 bg-gray-600"></div>
+        <div className="h-4 w-1/4 bg-gray-600"></div>
+      </div>
+    </div>
+  );
+};
