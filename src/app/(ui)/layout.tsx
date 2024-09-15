@@ -19,9 +19,7 @@ export default function Layout({ children }: Props) {
         <div className="mt-6 flex-1">
           <Logo size={24} />
           <nav className="mt-8">
-            <NavItem href="/home" icon={faHouse} label="Página incial" />
-          </nav>
-          <nav className="mt-8">
+            <NavItem href="/home" icon={faHouse} label="Página inicial" />
             <NavItem href="/profile" icon={faUser} label="Meu perfil" />
           </nav>
         </div>
