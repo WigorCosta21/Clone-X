@@ -13,3 +13,12 @@ export const TrendingItem = ({ label, count }: Props) => {
     </Link>
   );
 };
+
+export const TrendingItemSkeleton = () => {
+  return (
+    <div className="flex animate-pulse flex-col gap-1">
+      <div className="h-4 w-3/4 bg-gray-600"></div>
+      <div className="h-4 w-1/4 bg-gray-600"></div>
+    </div>
+  );
+};
