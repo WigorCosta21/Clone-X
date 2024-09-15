@@ -3,13 +3,18 @@
 import { User } from "@/types/user";
 import Link from "next/link";
 import { Button } from "./button";
+import { useState } from "react";
 
 type Props = {
   user: User;
 };
 
 export const RecommendationItem = ({ user }: Props) => {
-  const handleFollowButton = () => {};
+  const [following, setFollowing] = useState(false);
+
+  const handleFollowButton = () => {
+    setFollowing(true);
+  };
 
   return (
     <div className="flex items-center">
@@ -25,7 +30,9 @@ export const RecommendationItem = ({ user }: Props) => {
         <div className="truncate text-sm text-gray-400">@{user.slug}</div>
       </div>
       <div className="w-20 pl-2">
-        <Button label="seguir" onClink={handleFollowButton} size={3} />
+        {!following && (
+          <Button label="seguir" onClink={handleFollowButton} size={3} />
+        )}
       </div>
     </div>
   );
