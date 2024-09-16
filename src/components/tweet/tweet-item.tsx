@@ -1,14 +1,26 @@
+"use client";
+
 import { Tweet } from "@/types/tweet";
 import { faComment, faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faRetweet } from "@fortawesome/free-solid-svg-icons";
+import {
+  faRetweet,
+  faHeart as faHeartFilled,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useState } from "react";
 
 type Props = {
   tweet: Tweet;
 };
 
 export const TweetItem = ({ tweet }: Props) => {
+  const [liked, setLiked] = useState(tweet.liked);
+
+  const handleLikeButton = () => {
+    setLiked(!liked);
+  };
+
   return (
     <div className="flex gap-2 border-b-2 border-gray-900 p-6">
       <div>
@@ -50,8 +62,14 @@ export const TweetItem = ({ tweet }: Props) => {
             </div>
           </div>
           <div className="flex-1">
-            <div className="inline-flex cursor-pointer items-center gap-2">
-              <FontAwesomeIcon icon={faHeart} className="size-6" />
+            <div
+              onClick={handleLikeButton}
+              className={`inline-flex cursor-pointer items-center gap-2 ${liked && "text-red-400"}`}
+            >
+              <FontAwesomeIcon
+                icon={liked ? faHeartFilled : faHeart}
+                className="size-6"
+              />
               <div className="text-lg">{tweet.likeCount}</div>
             </div>
           </div>
